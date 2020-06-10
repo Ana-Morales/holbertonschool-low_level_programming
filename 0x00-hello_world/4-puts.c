@@ -1,6 +1,7 @@
 #include <stdio.h>
 /**
- * This code prints exactly "Programming is like building a multilingual puzzle
+ * main - This code prints a setence
+ * Return: 0
  */
 int main(void)
 {
