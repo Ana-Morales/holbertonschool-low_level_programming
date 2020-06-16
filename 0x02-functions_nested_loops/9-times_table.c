@@ -4,50 +4,41 @@
  */
 void times_table(void)
 {
-	int f1 = 0, f2 = 0, m, m2;
+	int f1, f2, m, m2;
 
-	while (f1 <= 9)
+	for (f1 = 0; f1 <= 9; f1++)
 	{
-		m = f1 * f2;
-		if (m <= 9)
+		for (f2 = 0; f2 <= 9; f2++)
 		{
-			m2 = f1 * (f2 + 1);
-			_putchar('0' + m % 10);
-			if (f2 < 9 && m2 < 10)
+			m = f1 * f2;
+			if (m <= 9 && f2 < 9)
 			{
+				m2 = f1 * (f2 + 1);
+				_putchar('0' + m);
 				_putchar(',');
 				_putchar(' ');
-				_putchar(' ');
-				f2++;
+				if (m2 < 10)
+				{
+					_putchar(' ');
+				}
 			}
-			else if (f2 < 9 && m2 >= 10)
+			else if (m > 9 && f2 < 9)
 			{
+				_putchar('0' + m / 10);
+				_putchar('0' + m % 10);
 				_putchar(',');
 				_putchar(' ');
-				f2++;
 			}
-			else
+			else if (m <= 9 && f2 == 9)
 			{
+				_putchar('0' + m);
+				_putchar ('\n');
+			}
+			else if (m > 9 && f2 == 9)
+			{
+				_putchar('0' + m / 10);
+				_putchar('0' + m % 10);
 				_putchar('\n');
-				f2 = 0;
-				f1++;
-			}
-		}
-		else
-		{
-			_putchar('0' + m / 10);
-			_putchar('0' + m % 10);
-			if (f2 < 9)
-			{
-				_putchar(',');
-				_putchar(' ');
-				f2++;
-			}
-			else
-			{
-				_putchar('\n');
-				f2 = 0;
-				f1++;
 			}
 		}
 	}
