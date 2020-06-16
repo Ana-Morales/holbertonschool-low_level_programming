@@ -4,19 +4,14 @@
  */
 void times_table(void)
 {
-	int f1;
-	int f2;
-	int m;
-	int m2;
+	int f1 = 0, f2 = 0, m, m2;
 
-	f1 = 0;
-	f2 = 0;
 	while (f1 <= 9)
 	{
 		m = f1 * f2;
 		if (m <= 9)
 		{
-			m2 = f1 * (f2 +1);
+			m2 = f1 * (f2 + 1);
 			_putchar('0' + m % 10);
 			if (f2 < 9 && m2 < 10)
 			{
@@ -35,7 +30,7 @@ void times_table(void)
 			{
 				_putchar('\n');
 				f2 = 0;
-			        f1++;
+				f1++;
 			}
 		}
 		else
