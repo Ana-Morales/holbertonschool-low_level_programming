@@ -6,12 +6,12 @@
  * Description: Prints Fizz for mult of 3,
  * Buzz for mult of 5, FizzBuzz for mult of both
  */
-void fizzbuzz(void);
+/*void fizzbuzz(void)
 int main(void)
 {
 	fizzbuzz();
 	return (0);
-}
+	}*/
 
 void fizzbuzz(void)
 {
