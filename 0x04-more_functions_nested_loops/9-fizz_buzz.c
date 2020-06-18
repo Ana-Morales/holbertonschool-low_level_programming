@@ -1,18 +1,19 @@
-#include "holberton.h"
 #include <stdio.h>
+/**
+ * main - test fizzbuzz function
+ */
+void fizzbuzz(void);
+int main(void)
+{
+	fizzbuzz();
+	return (0);
+}
 /**
  * fizzbuzz - prints the numbers from 1 to 100
  *
  * Description: Prints Fizz for mult of 3,
  * Buzz for mult of 5, FizzBuzz for mult of both
  */
-/*void fizzbuzz(void)
-int main(void)
-{
-	fizzbuzz();
-	return (0);
-	}*/
-
 void fizzbuzz(void)
 {
 	int n;
@@ -36,8 +37,11 @@ void fizzbuzz(void)
 		{
 			printf("%d", n);
 		}
-		printf(" ");
+		if (n < 100)
+		{
+			printf(" ");
+		}
 		n++;
 	}
-	printf("\n");
+	putchar('\n');
 }
