@@ -2,6 +2,10 @@
 /**
  * print_times_table - prints the n times table
  * @n: n table to print
+ *
+ * times_table_line - prints (0 to f) x n line
+ * @f: First factor
+ * @n: second factor
  */
 void times_table_line(int f, int n);
 void print_times_table(int n)
@@ -16,10 +20,12 @@ void print_times_table(int n)
 		}
 	}
 }
+
 /**
  * times_table_line - prints (0 to f) x n line
  * @f: First factor
  * @n: second factor
+ *
  */
 void times_table_line(int f, int n)
 {
