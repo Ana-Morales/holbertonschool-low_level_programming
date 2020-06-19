@@ -1,12 +1,8 @@
 #include <stdio.h>
 /**
  * main - test fizzbuzz function
- *
- * is_prime - indentifies is a number is prime
  * @n: number to test
- *
- * prime_factor: prints the largest prime factor of the number
- * @n: number to find its largest prime factor
+ * Return: 0
  */
 int is_prime(long int n);
 void prime_factor(long int n);
@@ -19,6 +15,11 @@ int main(void)
 	return (0);
 }
 
+/**
+ * is_prime - indentifies is a number is prime
+ * @n: number to test
+ * Return: 1 if n is prime, 0 if not
+ */
 int is_prime(long int n)
 {
 	long int d, p;
@@ -41,7 +42,10 @@ int is_prime(long int n)
 			return (0);
 	}
 }
-
+/**
+ * prime_factor - prints the largest prime factor of the number
+ * @n: number to find its largest prime factor
+ */
 void prime_factor(long int n)
 {
 	int p;
