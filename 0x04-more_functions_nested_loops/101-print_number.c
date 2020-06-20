@@ -9,10 +9,17 @@ void print_number(int n)
 
 	i = 1;
 	l = 1;
-	while (n / i != 0)
+	if (n / (1000000000) != 0)
 	{
-		l = i;
-		i = i * 10;
+		l = 1000000000;
+	}
+	else
+	{
+		while (n / i != 0)
+		{
+			l = i;
+			i = i * 10;
+		}
 	}
 	if (n < 0)
 	{
