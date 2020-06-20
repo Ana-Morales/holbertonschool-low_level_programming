@@ -1,4 +1,5 @@
 #include "holberton.h"
+
 /**
  * print_number - prints an integer
  * @n: number to print
@@ -24,13 +25,22 @@ void print_number(int n)
 	if (n < 0)
 	{
 		_putchar('-');
-		n = n * (-1);
+		while (l > 0)
+		{
+			d = n / l;
+			_putchar('0' + (d * -1));
+			n = n % l;
+			l = l / 10;
+		}
 	}
-	while (l > 0)
+	else
 	{
-		d = n / l;
-		_putchar('0' + d);
-		n = n % l;
-		l = l / 10;
+		while (l > 0)
+		{
+			d = n / l;
+			_putchar('0' + d);
+			n = n % l;
+			l = l / 10;
+		}
 	}
 }
