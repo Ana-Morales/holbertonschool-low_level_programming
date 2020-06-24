@@ -7,12 +7,6 @@ int _atoi(char *s)
 {
 	int num, pos;
 
-/*	i = 0;
-	while (s[i] != '\0')
-	{
-		len = i + 1;
-		i++;
-		}*/
 	while (*s != '\0')
 	{
 		num = 0;
@@ -25,7 +19,7 @@ int _atoi(char *s)
 				s++;
 				pos++;
 			}
-			if (*(s-(pos+1)) == '-')
+			if (*(s - (pos + 1)) == '-')
 				num = num * (-1);
 			break;
 		}
