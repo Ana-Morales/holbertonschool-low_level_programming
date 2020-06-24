@@ -6,31 +6,22 @@
  */
 int _atoi(char *s)
 {
-	int num, sign;
-	char *p, *n;
+	int num = 0, sign = 1;
+	char *p = s, *n = s;
 
-	p = s;
-	n = s;
-	sign = 1;
 
 	while (*s != '\0')
 	{
-		num = 0;
 		if (*s >= '0' && *s <= '9')
 		{
-			while (p != s)
+			while (p < s)
 			{
 				if (*s == '-')
 				{
 					sign = sign * (-1);
-					s--;
-					n++;
 				}
-				else
-				{
-					s--;
-					n++;
-				}
+				s--;
+				n++;
 			}
 			if (*s == '-')
 				sign = sign * (-1);
@@ -51,9 +42,7 @@ int _atoi(char *s)
 		break;
 		}
 		else
-		{
 			s++;
-		}
 	}
 	return (num);
 }
