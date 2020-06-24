@@ -6,7 +6,10 @@
  */
 int _atoi(char *s)
 {
-	int num, pos;
+	int num, pos, sign;
+	char *p;
+
+	p = s;
 
 	while (*s != '\0')
 	{
@@ -20,8 +23,20 @@ int _atoi(char *s)
 				s++;
 				pos++;
 			}
-			if (*(s - (pos + 1)) == '-')
-				num = num * (-1);
+			sign = 1;
+			while (p != s)
+			{
+				if (*s == '-')
+				{
+					sign = sign * (-1);
+					s--;
+				}
+				else
+					s--;
+			}
+			if (*s == '-')
+				sign = sign * (-1);
+			num = num * sign;
 			break;
 		}
 		else
