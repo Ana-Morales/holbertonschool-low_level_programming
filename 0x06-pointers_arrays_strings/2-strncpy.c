@@ -1,6 +1,6 @@
 #include "holberton.h"
 /**
- * _strncpy - copies the string pointed to by src, to buffer pointed to by dest.
+ * _strncpy - copies the string pointed to by src, to buffer pointed to by dest
  * @dest: string result of copying
  * @src: string to be copy
  * @n: number of characters to copy
@@ -16,6 +16,7 @@ char *_strncpy(char *dest, char *src, int n)
 	{
 		src++;
 		dest++;
+		i++;
 	}
 	return (out);
 }
