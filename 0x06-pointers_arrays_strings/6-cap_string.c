@@ -1,4 +1,4 @@
-B#include "holberton.h"
+#include "holberton.h"
 /**
  * cap_string -  capitalizes all words of a string
  *
