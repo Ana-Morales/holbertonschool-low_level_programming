@@ -1,4 +1,4 @@
-#include "holberton.h"
+B#include "holberton.h"
 /**
  * cap_string -  capitalizes all words of a string
  *
@@ -8,7 +8,7 @@
 char *cap_string(char *s)
 {
 	char *out = s;
-	char sep[] = {' ','\t','\n',',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+	char e[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
 	int i;
 
 	if (*s >= 'a' && *s <= 'z')
@@ -18,10 +18,10 @@ char *cap_string(char *s)
 	}
 	while (*s != '\0')
 	{
-		i =0;
-		while (sep[i] != '\0')
+		i = 0;
+		while (e[i] != '\0')
 		{
-			if (*s == sep[i]  && *(s+1) >= 'a' && *(s+1) <= 'z')
+			if (*s == e[i]  && *(s + 1) >= 'a' && *(s + 1) <= 'z')
 				*(s + 1) = *(s + 1) - 32;
 		       i++;
 		}
