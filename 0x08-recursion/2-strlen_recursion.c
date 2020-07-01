@@ -1,7 +1,8 @@
-#include "holberton.h"
+B#include "holberton.h"
 /**
- * _print_rev_recursion - prints a string in reverse
- * @s: string to print
+ * _strlen_recursion - returns the length of a string
+ * @s: string
+ * Return: lenght of the string
  */
 int _strlen_recursion(char *s)
 {
