@@ -8,7 +8,7 @@
  */
 int main(int argc, char **argv)
 {
-	int sum, i;
+	int sum, i, num;
 
 	sum = 0;
 	if (argc == 1)
@@ -24,7 +24,13 @@ int main(int argc, char **argv)
 			printf("Error\n");
 			return (1);
 		}
-		sum = sum + atoi(argv[i]);
+		num = atoi(argv[i]);
+		if (num < 0)
+		{
+			printf("Error\n");
+			return (1);
+		}
+		sum = sum + num;
 		i++;
 	}
 	printf("%d\n", sum);
