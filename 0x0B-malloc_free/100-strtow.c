@@ -30,29 +30,32 @@ char **strtow(char *str)
 	s = malloc(sizeof(char *) * words);
 	if (s == NULL)
 		return (NULL);
-	for (i = 0; i < words; i++)
+	i = 0;
+	while (i < words)
 	{
-		while (str[j] != '\0')
+		len = 0;
+		while (str[j] != ' ' && str[j] != '\0')
 		{
-			if (str[j] != ' ')
-				len++;
-			else if (len > 0)
-			{
-				s[i] = malloc(sizeof(char) * (len + 1));
-				if (s[i] == NULL)
-				{
-					for (i = 0; i < words; i++)
-					{
-						free(s[i]);
-					}
-					free(s);
-					return (NULL);
-				}
-				j++;
-				break;
-			}
+			len++;
 			j++;
 		}
+		if (len > 0)
+		{
+			printf("%d\n", len);
+			s[i] = malloc(sizeof(char) * (len + 1));
+			if (s[i] == NULL)
+			{
+				for (i = 0; i < words; i++)
+				{
+					free(s[i]);
+				}
+				free(s);
+				return (NULL);
+			}
+			i++;
+		}
+		else
+			j++;
 	}
 	i = 0;
 	while (i < words)
