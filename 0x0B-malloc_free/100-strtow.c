@@ -27,6 +27,8 @@ char **strtow(char *str)
 			break;
 		}
 	}
+	if (words == 0)
+		return (NULL);
 	s = malloc(sizeof(char *) * words + 1);
 	if (s == NULL)
 		return (NULL);
