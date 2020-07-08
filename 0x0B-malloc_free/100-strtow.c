@@ -45,7 +45,16 @@ char **strtow(char *str)
 		{
 			s[i] = malloc(sizeof(char) * (len + 1));
 			if (s[i] == NULL)
+			{
+				i = 0;
+				while (i < words)
+				{
+					free(s[i]);
+					i++;
+				}
+				free(s);
 				return (NULL);
+			}
 			i++;
 		}
 		else
