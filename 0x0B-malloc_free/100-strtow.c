@@ -41,7 +41,6 @@ char **strtow(char *str)
 		}
 		if (len > 0)
 		{
-			printf("%d\n", len);
 			s[i] = malloc(sizeof(char) * (len + 1));
 			if (s[i] == NULL)
 			{
