@@ -36,7 +36,6 @@ char *argstostr(int ac, char **av)
 	j = 0;
 	while (i < ac)
 	{
-
 		len = 0;
 		while (av[i][len] != '\0')
 		{
@@ -50,5 +49,4 @@ char *argstostr(int ac, char **av)
 	}
 	str[j] = '\0';
 	return (str);
-	free(str);
 }
