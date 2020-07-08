@@ -29,7 +29,7 @@ char *argstostr(int ac, char **av)
 		total_len = total_len + 1;
 		i++;
 	}
-	str = malloc((sizeof(char) * total_len) + 1);
+	str = malloc(1 + total_len * sizeof(char));
 	if (str == NULL)
 		return (NULL);
 	i = 0;
@@ -50,4 +50,5 @@ char *argstostr(int ac, char **av)
 	}
 	str[j] = '\0';
 	return (str);
+	free(str);
 }
