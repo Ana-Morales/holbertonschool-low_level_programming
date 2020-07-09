@@ -38,8 +38,12 @@ int _isdigit(int ac, char **av)
  */
 int *_mul(char *a, char *b)
 {
+	int *check;
 	int *mul;
 
+	check = malloc(atoi(a) * atoi(b));
+	if (check == NULL)
+		return (NULL);
 	mul = malloc(sizeof(int));
 	if (mul == NULL)
 		return (NULL);
@@ -73,6 +77,8 @@ int main(int argc, char **argv)
 		i++;
 	}
 	mul = _mul(argv[1], argv[2]);
+	if (mul == NULL)
+		return (1);
 	printf("%d\n", *mul);
 	free(mul);
 	return (0);
