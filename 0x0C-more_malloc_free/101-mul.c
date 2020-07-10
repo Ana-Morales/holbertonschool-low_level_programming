@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 	}
 	mul = _mul(argv[1], argv[2]);
 	if (mul == NULL)
-		return (1);
+		exit(98);
 	printf("%d\n", *mul);
 	free(mul);
 	return (0);
