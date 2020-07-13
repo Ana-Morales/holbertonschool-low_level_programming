@@ -15,6 +15,11 @@ struct dog
 };
 
 /**
+ * dog_t - Typedef for struct dog
+ */
+typedef struct dog dog_t;
+
+/**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
