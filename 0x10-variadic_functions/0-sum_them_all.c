@@ -5,7 +5,6 @@
  * @n: number of parameters
  *
  * Return: sum of all its parameters, o if n == 0.
- * which consist only of bytes from accept.
  */
 int sum_them_all(const unsigned int n, ...)
 {
