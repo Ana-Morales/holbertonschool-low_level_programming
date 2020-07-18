@@ -1,5 +1,6 @@
 #ifndef _VARIADIC_FUNCTIONS_H_
 #define _VARIADIC_FUNCTIONS_H_
+#include <stdarg.h>
 /**
  * struct fun - Struct
  *
