@@ -1,47 +1,6 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include "variadic_functions.h"
-
-/**
- * print_i - prints an int
- * @arg: argument to print
- *
- */
-void print_i(va_list arg)
-{
-	printf("%d", va_arg(arg, int));
-}
-/**
- * print_c - prints a char
- * @arg: argumetn to print
- *
- */
-void print_c(va_list arg)
-{
-	printf("%c", va_arg(arg, int));
-}
-/**
- * print_f - prints a float
- * @arg: argument to print
- *
- */
-void print_f(va_list arg)
-{
-	printf("%f", va_arg(arg, double));
-}
-/**
- * print_s - prints a string
- * @arg: argumetn to print
- *
- */
-void print_s(va_list arg)
-{
-	char *s;
-
-	s = va_arg(arg, char *);
-	printf("%s", (s == NULL) ? "(nil)" : s);
-}
-
 /**
  * print_all - prints anything
  * @format: list of types of arguments passed to the function
@@ -50,33 +9,40 @@ void print_s(va_list arg)
 void print_all(const char * const format, ...)
 {
 	va_list args;
-	void (*f_prnt)(va_list);
-	int i, j;
-	func a[] = {
-		{'i', print_i},
-		{'c', print_c},
-		{'f', print_f},
-		{'s', print_s},
-		{'\0', NULL},
-	};
+	char *s, c;
+	int i = 0, intv, sep;
+	float f;
+
 	va_start(args, format);
-	i = 0;
 	while (format != NULL && format[i] != '\0')
 	{
-		j = 0;
-		while (j < 4)
+		switch (format[i])
 		{
-			if (format[i] == a[j].id)
-			{
-				f_prnt = a[j].fp;
-				f_prnt(args);
-				if (format[i + 1] != '\0')
-					printf(", ");
-
-			}
-			j++;
+		case 'i':
+			intv = va_arg(args, int);
+			printf("%d", intv);
+			sep = 1;
+			break;
+		case 'c':
+			c = va_arg(args, int);
+			printf("%c", c);
+			sep = 1;
+			break;
+		case 'f':
+			f = va_arg(args, double);
+			printf("%f", f);
+			sep = 1;
+			break;
+		case 's':
+			s = va_arg(args, char *);
+			sep = 1;
+			printf("%s", (s == NULL) ? "(nil)" : s);
+			break;
+		default:
+			sep = 0;
 		}
-
+		if (format[i + 1] != '\0' && sep == 1)
+			printf(", ");
 		i++;
 	}
 	printf("\n");
