@@ -1,6 +1,17 @@
 #ifndef _VARIADIC_FUNCTIONS_H_
 #define _VARIADIC_FUNCTIONS_H_
 /**
+ * struct fun - Struct
+ *
+ * @id: identifier of function to call
+ * @fp: The function associated
+ */
+typedef struct fun
+{
+	char id;
+	void (*fp)(va_list);
+} func;
+/**
  * _putchar - writes the character c to stdout
  * @c: The character to print
  *
