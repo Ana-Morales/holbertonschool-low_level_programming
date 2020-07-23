@@ -1,8 +1,7 @@
 #include "lists.h"
 /**
- * add_node - adds a new node at the beginning of a list_t list
+ * free_list -  frees a list_t list.
  * @head: pointer to old first node
- * @str: string to be copied to new_node->str
  *
  * Return: addres of the new element
  */
