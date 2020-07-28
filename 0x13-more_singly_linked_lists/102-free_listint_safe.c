@@ -44,7 +44,7 @@ size_t free_listint_safe(listint_t **h)
 	size_t size;
 	int count;
 
-	if (h == NULL)
+	if (h == NULL || *h == NULL)
 		return (0);
 	size = 0;
 	count = 0;
