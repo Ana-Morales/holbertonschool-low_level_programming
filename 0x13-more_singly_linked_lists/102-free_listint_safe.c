@@ -48,9 +48,9 @@ size_t free_listint_safe(listint_t **h)
 		return (0);
 	size = 0;
 	checkloop = find_loop_2(*h);
+	temp = *h;
 	if (checkloop == NULL)
 	{
-		temp = *h;
 		while (*h)
 		{
 			temp = (*h)->next;
@@ -63,7 +63,6 @@ size_t free_listint_safe(listint_t **h)
 	else
 	{
 		count = 0;
-		temp = *h;
 		if (temp == checkloop)
 			count++;
 		while (count < 2)
