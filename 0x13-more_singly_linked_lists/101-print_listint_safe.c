@@ -27,6 +27,7 @@ const listint_t *find_loop(const listint_t *head)
 				if (hare == aux)
 					tortoise = tortoise->next;
 			}
+			return (hare);
 		}
 	}
 	return (NULL);
@@ -39,15 +40,15 @@ const listint_t *find_loop(const listint_t *head)
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *current, *check_loop;
+	const listint_t *current, *checkloop;
 	size_t size;
 	int count;
 
 	current = head;
 	size = 0;
 	count = 0;
-	check_loop = find_loop(head);
-	if (check_loop == NULL)
+	checkloop = find_loop(head);
+	if (checkloop == NULL)
 	{
 		while (current)
 		{
@@ -59,11 +60,13 @@ size_t print_listint_safe(const listint_t *head)
 	}
 	else
 	{
+		if (current == checkloop)
+			count++;
 		while (count < 2)
 		{
 			printf("[%p] %d\n", (void *)current, current->n);
 			size++;
-			if (current->next == check_loop)
+			if (current->next == checkloop)
 				count++;
 			current = current->next;
 		}
