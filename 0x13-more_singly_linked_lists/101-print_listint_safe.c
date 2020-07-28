@@ -1,11 +1,11 @@
 #include "lists.h"
 /**
- * find_loop - Finds if there is a loop in a linked list
+ * find_loop_1 - Finds if there is a loop in a linked list
  * @head: pointer to the first node
  *
  * Return: Pointer to the beginning of the loop
  */
-const listint_t *find_loop(const listint_t *head)
+const listint_t *find_loop_1(const listint_t *head)
 {
 	const listint_t *tortoise, *hare, *aux;
 
@@ -47,7 +47,7 @@ size_t print_listint_safe(const listint_t *head)
 	current = head;
 	size = 0;
 	count = 0;
-	checkloop = find_loop(head);
+	checkloop = find_loop_1(head);
 	if (checkloop == NULL)
 	{
 		while (current)
