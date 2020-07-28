@@ -44,9 +44,9 @@ size_t free_listint_safe(listint_t **h)
 	size_t size;
 	int count;
 
-	if (*h == NULL || h == NULL)
-		return (0);
 	size = 0;
+	if (*h == NULL || h == NULL)
+		return (size);
 	checkloop = find_loop_2(*h);
 	temp = *h;
 	if (checkloop == NULL)
