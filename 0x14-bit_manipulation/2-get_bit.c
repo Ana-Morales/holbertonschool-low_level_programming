@@ -8,9 +8,9 @@
  *
  * Return: result of power operation
  */
-unsigned int power(unsigned int b, unsigned int e)
+unsigned long int power(unsigned int b, unsigned int e)
 {
-	unsigned int i;
+	unsigned long int i;
 
 	if (e == 0)
 		return (1);
