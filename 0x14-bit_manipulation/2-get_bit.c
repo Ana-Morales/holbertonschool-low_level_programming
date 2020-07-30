@@ -40,7 +40,7 @@ int get_bit(unsigned long int n, unsigned int index)
 		if (index == 0)
 			return (0);
 		else
-			return (0);
+			return (-1);
 	}
 	while (sum < n)
 	{
