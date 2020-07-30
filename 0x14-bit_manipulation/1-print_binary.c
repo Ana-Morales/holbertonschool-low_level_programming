@@ -10,7 +10,7 @@
  */
 unsigned long int power(unsigned long int b, int e)
 {
-	unsigned int i;
+	unsigned long int i;
 
 	if (e == 0)
 		return (1);
