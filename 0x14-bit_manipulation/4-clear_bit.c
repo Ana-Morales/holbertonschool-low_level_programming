@@ -31,42 +31,8 @@ unsigned long int power(unsigned long int b, int e)
  */
 int clear_bit(unsigned long int *n, unsigned int index)
 {
-	unsigned long int sum;
-	unsigned int i = 0;
-	int j;
-
 	if (index > 63)
 		return (-1);
-	if (*n == 0)
-	{
-		return (1);
-	}
-	for (sum = 0; sum < *n; i++)
-	{
-		sum += power(2, i);
-	}
-	i--;
-	if (index > i)
-	{
-		return (1);
-	}
-	for (sum = 0, j = i; j >= 0; i--, j--)
-	{
-		sum += power(2, i);
-		if (sum <= *n)
-		{
-			if (i == index)
-			{
-				*n = *n - power(2, i);
-				return (1);
-			}
-		}
-		else
-		{
-			if (i == index)
-				return (1);
-			sum -= power(2, i);
-		}
-	}
-	return (-1);
+	*n = (*n) & ~(power(2, index));
+	return (1);
 }
