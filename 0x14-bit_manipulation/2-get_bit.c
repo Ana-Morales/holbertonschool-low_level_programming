@@ -53,7 +53,6 @@ int get_bit(unsigned long int n, unsigned int index)
 	sum = 0;
 	while (j >= 0)
 	{
-		printf("%u - %d\n", i, j);
 		sum += power(2, i);
 		if (sum <= n)
 		{
