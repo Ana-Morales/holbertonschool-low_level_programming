@@ -8,7 +8,7 @@
  *
  * Return: result of power operation
  */
-unsigned long int power(unsigned int b, unsigned int e)
+unsigned long int power(unsigned long int b, int e)
 {
 	unsigned long int i;
 
@@ -37,11 +37,10 @@ int get_bit(unsigned long int n, unsigned int index)
 
 	if (n == 0)
 	{
-		if (index == 0)
-			return (0);
-		else
-			return (-1);
+		return (0);
 	}
+	if (index > 63)
+		return (-1);
 	while (sum < n)
 	{
 		sum += power(2, i);
