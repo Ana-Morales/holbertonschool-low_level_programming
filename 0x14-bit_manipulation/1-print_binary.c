@@ -8,7 +8,7 @@
  *
  * Return: result of power operation
  */
-unsigned int power(unsigned int b, unsigned int e)
+unsigned long int power(unsigned long int b, int e)
 {
 	unsigned int i;
 
