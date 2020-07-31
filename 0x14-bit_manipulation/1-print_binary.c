@@ -9,7 +9,7 @@
 void print_binary(unsigned long int n)
 {
 	unsigned long int aux1, aux2;
-	int len;
+	int count;
 
 	aux1 = n;
 	count = 0;
@@ -18,10 +18,13 @@ void print_binary(unsigned long int n)
 		aux1 = aux1 >> 1;
 		count++;
 	}
+	if (count > 0)
+		count--;
 	aux2 = 1 << count;
 	while (aux2 > 0)
 	{
 		(n & aux2) > 0 ? _putchar('1') : _putchar('0');
 		aux2 = aux2 >> 1;
+		count--;
 	}
 }
