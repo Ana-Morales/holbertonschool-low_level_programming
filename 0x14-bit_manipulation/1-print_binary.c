@@ -2,60 +2,26 @@
 #include <stdio.h>
 #include "holberton.h"
 /**
- * power - calculate power
- * @b: base
- * @e: power
- *
- * Return: result of power operation
- */
-unsigned long int power(unsigned long int b, int e)
-{
-	unsigned long int i;
-
-	if (e == 0)
-		return (1);
-	i = 1;
-	while (e > 0)
-	{
-		i = i * b;
-		e--;
-	}
-	return (i);
-}
-/**
  * print_binary - prints the binary representation of a number
  * @n: number
  *
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int sum;
-	int i;
+	unsigned long int aux1, aux2;
+	int len;
 
-	if (n == 0)
+	aux1 = n;
+	count = 0;
+	while (aux1 > 0)
 	{
-		_putchar('0');
-		return;
+		aux1 = aux1 >> 1;
+		count++;
 	}
-	i = 0;
-	sum = 0;
-	while (sum < n)
+	aux2 = 1 << count;
+	while (aux2 > 0)
 	{
-		sum += power(2, i);
-		i++;
-	}
-	i--;
-	sum = 0;
-	while (i >= 0)
-	{
-		sum += power(2, i);
-		if (sum <= n)
-			_putchar('1');
-		else
-		{
-			_putchar('0');
-			sum -= power(2, i);
-		}
-		i--;
+		(n & aux2) > 0 ? _putchar('1') : _putchar('0');
+		aux2 = aux2 >> 1;
 	}
 }
