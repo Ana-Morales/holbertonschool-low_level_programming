@@ -18,7 +18,10 @@ int _cp(const char *filename_from, const char *filename_to)
 	char buffer[1024];
 
 	if (filename_from == NULL)
-		return (0);
+	{
+		dprintf(2, "Error: Can't read from file %s\n", filename_from);
+		exit(98);
+	}
 	fd_from = open(filename_from, O_RDONLY);
 	if (fd_from == -1)
 	{
