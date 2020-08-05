@@ -41,7 +41,10 @@ int _cp(const char *filename_from, const char *filename_to)
 		}
 		n = write(fd_to, buffer, n);
 		if (n == -1)
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename_to), exit(99);
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename_to);
+			exit(99);
+		}
 	}
 	n = close(fd_from);
 	if (n == -1)
