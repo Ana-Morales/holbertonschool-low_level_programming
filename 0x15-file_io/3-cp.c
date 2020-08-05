@@ -37,11 +37,6 @@ int _cp(const char *filename_from, const char *filename_to)
 		if (n < 1024)
 		{
 			n = write(fd_to, buffer, n);
-			if (n == -1)
-			{
-				dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename_to);
-				exit(99);
-			}
 			break;
 		}
 		n = write(fd_to, buffer, n);
