@@ -69,8 +69,30 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->value = strdup(value);
 	if (new->value == NULL)
 		return (0);
-	new->next = ht->array[idx];
-	ht->array[idx] = new;
+	tmp = ht->array[idx];
+	if (tmp == NULL)
+	{
+		new->next = ht->array[idx];
+		ht->array[idx] = new;
+
+	}
+	else
+	{
+		while (tmp->next != NULL && (hash_djb2((const unsigned char *)tmp->next->key) < hash_djb2((const unsigned char *)new->key)))
+		{
+			tmp = tmp->next;
+		}
+		if (tmp == ht->array[idx])
+		{
+			new->next = ht->array[idx];
+			ht->array[idx] = new;
+		}
+		else
+		{
+			new->next = tmp->next;
+			tmp->next = new;
+		}
+	}
 	if (ht->shead == NULL)
 	{
 		new->snext = NULL;
