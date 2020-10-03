@@ -78,7 +78,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	}
 	else
 	{
-		while (tmp->next != NULL && (hash_djb2((const unsigned char *)tmp->next->key) < hash_djb2((const unsigned char *)new->key)))
+		while (tmp->next && (strcmp(tmp->next->key, new->key) < 0))
 		{
 			tmp = tmp->next;
 		}
@@ -100,7 +100,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		ht->shead = new;
 		ht->stail = new;
 	}
-	else if (hash_djb2((const unsigned char *)ht->shead->key) > hash_djb2((const unsigned char *)new->key))
+	else if (strcmp(ht->shead->key, new->key) > 0)
 	{
 		new->sprev = NULL;
 		new->snext = ht->shead;
@@ -110,7 +110,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	else
 	{
 		aux = ht->shead;
-		while (aux->snext != NULL && (hash_djb2((const unsigned char *)aux->snext->key) < hash_djb2((const unsigned char *)new->key)))
+		while (aux->snext && (strcmp(aux->snext->key, new->key) < 0))
 		{
 			aux = aux->snext;
 		}
