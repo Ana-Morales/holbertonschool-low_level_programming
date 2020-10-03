@@ -40,7 +40,7 @@ shash_table_t *shash_table_create(unsigned long int size)
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int idx;
-	shash_node_t *new, *tmp, *aux;
+	shash_node_t *new, *tmp;
 
 	if (ht == NULL || ht->array == NULL || key == NULL || value == NULL)
 		return (0);
@@ -69,32 +69,22 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 	new->value = strdup(value);
 	if (new->value == NULL)
 		return (0);
-/*	tmp = ht->array[idx];
-	if (tmp == NULL)
-	{
-		new->next = ht->array[idx];
-		ht->array[idx] = new;
-
-	}
-	else
-	{
-		while (tmp->next && (strcmp(tmp->next->key, new->key) < 0))
-		{
-			tmp = tmp->next;
-		}
-		if (tmp == ht->array[idx])
-		{
-			new->next = ht->array[idx];
-			ht->array[idx] = new;
-		}
-		else
-		{
-			new->next = tmp->next;
-			tmp->next = new;
-		}
-		}*/
 	new->next = ht->array[idx];
 	ht->array[idx] = new;
+	sort_new_node(ht, new);
+
+	return (1);
+}
+/**
+ * sort_new_node - inserts new node in the sorted hash table
+ * @ht: hash table
+ * @new: new node to insert
+ *
+ */
+void sort_new_node(shash_table_t *ht, shash_node_t *new)
+{
+	shash_node_t *aux;
+
 	if (ht->shead == NULL)
 	{
 		new->snext = NULL;
@@ -124,9 +114,9 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 		if (new->snext == NULL)
 			ht->stail = new;
 	}
-
-	return (1);
 }
+
+
 /**
  * shash_table_get - retrieves a value associated with a key.
  * @ht:  hash table to look into
