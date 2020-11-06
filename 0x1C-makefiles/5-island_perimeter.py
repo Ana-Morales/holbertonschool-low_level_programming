@@ -19,4 +19,6 @@ def island_perimeter(grid):
                     y_min = j
                 if j > y_max:
                     y_max = j
+    if x_min != 0 and y_min != 0:
+        return 0
     return (x_max - x_min + 1)*2 + (y_max - y_min + 1)*2
