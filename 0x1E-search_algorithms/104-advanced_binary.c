@@ -52,7 +52,7 @@ int advanced_binary(int *array, size_t size, int value)
 {
 	int ans;
 
-	if (array == NULL)
+	if (array == NULL || size == 0)
 		return (-1);
 	ans = binary_adv(array, 0, (int)size - 1, value);
 	return (ans);
