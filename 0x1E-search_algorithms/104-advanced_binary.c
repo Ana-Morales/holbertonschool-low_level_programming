@@ -31,9 +31,9 @@ int binary_adv(int *array, int left, int right, int value)
 		else
 			return (-1);
 	}
-	if (left > right)
-		return (-1);
 	mid = (left + right) / 2;
+	if (array[mid] == value && (mid == left || array[mid - 1] != value))
+		return (mid);
 	if (array[mid] < value)
 		return (binary_adv(array, mid + 1, right, value));
 	else
